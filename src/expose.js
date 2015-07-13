@@ -56,6 +56,5 @@ if (typeof define == TYPE_FUNCTION && define.amd) {
     });
 } else if (typeof module != 'undefined' && module.exports) {
     module.exports = Hammer;
-} else {
-    window[exportName] = Hammer;
 }
+window[exportName] = Hammer;
