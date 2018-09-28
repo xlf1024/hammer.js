@@ -1,0 +1,23 @@
+{
+	"extends": "naver",
+	"rules": {
+		"comma-dangle": [
+			"error",
+			{
+				"arrays": "always-multiline",
+				"objects": "always-multiline",
+				"imports": "always-multiline",
+				"exports": "always-multiline",
+				"functions": "never"
+			}
+		],
+		"import/prefer-default-export": "off",
+		"linebreak-style": 0,
+		"array-element-newline": "off",
+		"class-methods-use-this": "off",
+		"object-curly-spacing": "off",
+		"import/no-unresolved": 2
+	},
+	"parser": "babel-eslint",
+	"plugins": ["import"]
+}
