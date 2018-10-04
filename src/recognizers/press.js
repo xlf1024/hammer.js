@@ -20,8 +20,14 @@ import {
  * @extends Recognizer
  */
 export default class PressRecognizer extends Recognizer {
-  constructor() {
-    super(...arguments);
+  constructor(options = {}) {
+    super({
+      event: 'press',
+      pointers: 1,
+      time: 251, // minimal time of the pointer to be pressed
+      threshold: 9, // a minimal movement is ok, but keep it low
+      ...options,
+    });
     this._timer = null;
     this._input = null;
   }
@@ -72,9 +78,3 @@ export default class PressRecognizer extends Recognizer {
   }
 }
 
-PressRecognizer.prototype.defaults = {
-  event: 'press',
-  pointers: 1,
-  time: 251, // minimal time of the pointer to be pressed
-  threshold: 9 // a minimal movement is ok, but keep it low
-};

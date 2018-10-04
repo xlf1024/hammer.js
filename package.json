@@ -1,34 +1,20 @@
 {
-  "name": "hammerjs",
+  "name": "@egjs/hammerjs",
   "title": "Hammer.JS",
   "description": "A javascript library for multi-touch gestures",
   "version": "2.0.8",
-  "homepage": "http://hammerjs.github.io/",
+  "homepage": "http://naver.github.io/egjs",
   "license": "MIT",
   "keywords": [
     "touch",
     "gestures"
   ],
-  "author": {
-    "name": "Jorik Tangelder",
-    "email": "j.tangelder@gmail.com"
-  },
-  "contributors": [
-    {
-      "name": "Alexander Schmitz",
-      "email": "arschmitz@gmail.com"
-    },
-    {
-      "name": "Chris Thoburn",
-      "email": ""
-    }
-  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/hammerjs/hammer.js.git"
+    "url": "git://github.com/naver/hammer.js.git"
   },
   "bugs": {
-    "url": "https://github.com/hammerjs/hammer.js/issues"
+    "url": "https://github.com/naver/hammer.js/issues"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
@@ -74,6 +60,7 @@
     "build:rollup": "rollup -c",
     "build:module": "BABEL_ENV=esm babel ./src --out-dir ./dist/esm && BABEL_ENV=common babel ./src --out-dir ./dist/common",
     "build": "npm run rollup && npm run string-replace && npm run bannerize",
+    "testbuild": "BABEL_ENV=esm rollup -c ./testrollup.config.js",
     "bannerize": "bannerize hammer.js hammer.min.js",
     "connect": "serve -p 8000 ./",
     "rollup": "BABEL_ENV=esm rollup -c",
@@ -83,7 +70,7 @@
     "qunit": "phantomjs node_modules/qunit-phantomjs-runner/runner-list.js tests/unit/index.html 15",
     "watch": "run-when-changed --watch 'src/**/*.js' --watch 'tests/unit/*.js' --watch 'tests/unit/gestures/*.js' --exec 'npm run watch-tasks'",
     "watch-tasks": "npm run rollup && npm run string-replace && npm run uglify && npm run jshint && npm run jscs",
-    "test": "npm run build && npm run jshint && npm run jscs && npm run qunit"
+    "test": "npm run build && npm run qunit"
   },
   "sideEffects": false,
   "module": "dist/hammer.esm.js",

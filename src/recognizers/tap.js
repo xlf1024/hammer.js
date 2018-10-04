@@ -21,8 +21,17 @@ import getDistance from '../inputjs/get-distance';
  * @extends Recognizer
  */
 export default class TapRecognizer extends Recognizer {
-  constructor() {
-    super(...arguments);
+  constructor(options = {}) {
+    super({
+      event: 'tap',
+      pointers: 1,
+      taps: 1,
+      interval: 300, // max time between the multi-tap taps
+      time: 250, // max time of the pointer to be down (like finger on the screen)
+      threshold: 9, // a minimal movement is ok, but keep it low
+      posThreshold: 10, // a multi-tap can be a bit off the initial position
+      ...options,
+    });
 
     // previous time and center,
     // used for tap counting
@@ -110,13 +119,3 @@ export default class TapRecognizer extends Recognizer {
     }
   }
 }
-
-TapRecognizer.prototype.defaults = {
-  event: 'tap',
-  pointers: 1,
-  taps: 1,
-  interval: 300, // max time between the multi-tap taps
-  time: 250, // max time of the pointer to be down (like finger on the screen)
-  threshold: 9, // a minimal movement is ok, but keep it low
-  posThreshold: 10 // a multi-tap can be a bit off the initial position
-};

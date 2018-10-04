@@ -9,7 +9,6 @@ import {
 } from './recognizer-consts';
 import assign from '../utils/assign';
 import uniqueId from '../utils/unique-id';
-import ifUndefined from '../utils/if-undefined';
 import invokeArrayArg from '../utils/invoke-array-arg';
 import inArray from '../utils/in-array';
 import boolOrFn from '../utils/bool-or-fn';
@@ -53,16 +52,17 @@ import stateStr from './state-str';
  * @param {Object} options
  */
 export default class Recognizer {
-  constructor(options) {
-    this.options = assign({}, this.defaults, options || {});
+  constructor(options = {}) {
+    this.options = {
+      enable: true,
+      ...options,
+    };
 
     this.id = uniqueId();
 
     this.manager = null;
 
     // default is enable true
-    this.options.enable = ifUndefined(this.options.enable, true);
-
     this.state = STATE_POSSIBLE;
     this.simultaneous = {};
     this.requireFail = [];
@@ -298,5 +298,3 @@ export default class Recognizer {
    */
   reset() { }
 }
-
-Recognizer.prototype.defaults = {};

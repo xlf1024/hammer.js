@@ -18,8 +18,11 @@ import {
  * @extends Recognizer
  */
 export default class AttrRecognizer extends Recognizer {
-  constructor() {
-    super(...arguments);
+  constructor(options = {}) {
+    super({
+      pointers: 1,
+      ...options,
+    });
   }
 
   /**
@@ -62,12 +65,3 @@ export default class AttrRecognizer extends Recognizer {
     return STATE_FAILED;
   }
 }
-
-AttrRecognizer.prototype.defaults = {
-  /**
-   * @private
-   * @type {Number}
-   * @default 1
-   */
-  pointers: 1
-};
