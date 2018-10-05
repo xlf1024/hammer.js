@@ -1,5 +1,11 @@
 import Manager from "./manager";
-import defaults from "./defaults";
+import RotateRecognizer from './recognizers/rotate';
+import PinchRecognizer from './recognizers/pinch';
+import SwipeRecognizer from './recognizers/swipe';
+import PanRecognizer from './recognizers/pan';
+import TapRecognizer from './recognizers/tap';
+import PressRecognizer from './recognizers/press';
+import { DIRECTION_HORIZONTAL } from './inputjs/input-consts';
 
 /**
  * @private
@@ -17,7 +23,16 @@ export default class Hammer {
 
 	constructor(element, options = {}) {
 		return new Manager(element, {
-			recognizers: defaults.preset,
+			recognizers: [
+					// RecognizerClass, options, [recognizeWith, ...], [requireFailure, ...]
+					[RotateRecognizer, { enable: false }],
+					[PinchRecognizer, { enable: false }, ['rotate']],
+					[SwipeRecognizer, { direction: DIRECTION_HORIZONTAL }],
+					[PanRecognizer, { direction: DIRECTION_HORIZONTAL }, ['swipe']],
+					[TapRecognizer],
+					[TapRecognizer, { event: 'doubletap', taps: 2 }, ['tap']],
+					[PressRecognizer]
+			],
 			...options,
 		});
 	}

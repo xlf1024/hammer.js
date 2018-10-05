@@ -44,8 +44,8 @@ if (window.MSPointerEvent && !window.PointerEvent) {
  */
 export default class PointerEventInput extends Input {
   constructor() {
-    PointerEventInput.prototype.evEl = POINTER_ELEMENT_EVENTS;
-    PointerEventInput.prototype.evWin = POINTER_WINDOW_EVENTS;
+    this.evEl = POINTER_ELEMENT_EVENTS;
+    this.evWin = POINTER_WINDOW_EVENTS;
     super(...arguments);
     
 

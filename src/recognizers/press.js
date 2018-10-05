@@ -4,7 +4,6 @@ import {
     STATE_FAILED
 } from '../recognizerjs/recognizer-consts';
 import { now } from '../utils/utils-consts';
-import setTimeoutContext from '../utils/set-timeout-context';
 import { TOUCH_ACTION_AUTO } from '../touchactionjs/touchaction-Consts';
 import {
     INPUT_START,
@@ -50,10 +49,10 @@ export default class PressRecognizer extends Recognizer {
       this.reset();
     } else if (input.eventType & INPUT_START) {
       this.reset();
-      this._timer = setTimeoutContext(() => {
+      this._timer = setTimeout(() => {
         this.state = STATE_RECOGNIZED;
         this.tryEmit();
-      }, options.time, this);
+      }, options.time);
     } else if (input.eventType & INPUT_END) {
       return STATE_RECOGNIZED;
     }

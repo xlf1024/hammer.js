@@ -8,10 +8,10 @@ import splitStr from "./utils/split-str";
 import prefixed from "./utils/prefixed";
 import Recognizer from "./recognizerjs/recognizer-constructor";
 import {
-	STATE_BEGAN,
-	STATE_ENDED,
-	STATE_CHANGED,
-	STATE_RECOGNIZED,
+  STATE_BEGAN,
+  STATE_ENDED,
+  STATE_CHANGED,
+  STATE_RECOGNIZED,
 } from "./recognizerjs/recognizer-consts";
 import defaults from "./defaults";
 
@@ -26,25 +26,25 @@ const FORCED_STOP = 2;
  * @param {Boolean} add
  */
 function toggleCssProps(manager, add) {
-	const { element } = manager;
+  const { element } = manager;
 
-	if (!element.style) {
-		return;
-	}
-	let prop;
+  if (!element.style) {
+    return;
+  }
+  let prop;
 
-	each(manager.options.cssProps, (value, name) => {
-		prop = prefixed(element.style, name);
-		if (add) {
-			manager.oldCssProps[prop] = element.style[prop];
-			element.style[prop] = value;
-		} else {
-			element.style[prop] = manager.oldCssProps[prop] || "";
-		}
-	});
-	if (!add) {
-		manager.oldCssProps = {};
-	}
+  each(manager.options.cssProps, (value, name) => {
+    prop = prefixed(element.style, name);
+    if (add) {
+      manager.oldCssProps[prop] = element.style[prop];
+      element.style[prop] = value;
+    } else {
+      element.style[prop] = manager.oldCssProps[prop] || "";
+    }
+  });
+  if (!add) {
+    manager.oldCssProps = {};
+  }
 }
 
 /**
@@ -54,11 +54,11 @@ function toggleCssProps(manager, add) {
  * @param {Object} data
  */
 function triggerDomEvent(event, data) {
-	const gestureEvent = document.createEvent("Event");
+  const gestureEvent = document.createEvent("Event");
 
-	gestureEvent.initEvent(event, true, true);
-	gestureEvent.gesture = data;
-	data.target.dispatchEvent(gestureEvent);
+  gestureEvent.initEvent(event, true, true);
+  gestureEvent.gesture = data;
+  data.target.dispatchEvent(gestureEvent);
 }
 
 
@@ -70,29 +70,29 @@ function triggerDomEvent(event, data) {
  * @constructor
  */
 export default class Manager {
-	constructor(element, options) {
-		this.options = assign({}, defaults, options || {});
+  constructor(element, options) {
+    this.options = assign({}, defaults, options || {});
 
-		this.options.inputTarget = this.options.inputTarget || element;
+    this.options.inputTarget = this.options.inputTarget || element;
 
-		this.handlers = {};
-		this.session = {};
-		this.recognizers = [];
-		this.oldCssProps = {};
+    this.handlers = {};
+    this.session = {};
+    this.recognizers = [];
+    this.oldCssProps = {};
 
-		this.element = element;
-		this.input = createInputInstance(this);
-		this.touchAction = new TouchAction(this, this.options.touchAction);
+    this.element = element;
+    this.input = createInputInstance(this);
+    this.touchAction = new TouchAction(this, this.options.touchAction);
 
-		toggleCssProps(this, true);
+    toggleCssProps(this, true);
 
-		each(this.options.recognizers, item => {
-			const recognizer = this.add(new(item[0])(item[1]));
+    each(this.options.recognizers, item => {
+      const recognizer = this.add(new (item[0])(item[1]));
 
-			item[2] && recognizer.recognizeWith(item[2]);
-			item[3] && recognizer.requireFailure(item[3]);
-		}, this);
-	}
+      item[2] && recognizer.recognizeWith(item[2]);
+      item[3] && recognizer.requireFailure(item[3]);
+    }, this);
+  }
 
 	/**
 	 * @private
@@ -100,21 +100,21 @@ export default class Manager {
 	 * @param {Object} options
 	 * @returns {Manager}
 	 */
-	set(options) {
-		assign(this.options, options);
+  set(options) {
+    assign(this.options, options);
 
-		// Options that need a little more setup
-		if (options.touchAction) {
-			this.touchAction.update();
-		}
-		if (options.inputTarget) {
-			// Clean up existing event listeners and reinitialize
-			this.input.destroy();
-			this.input.target = options.inputTarget;
-			this.input.init();
-		}
-		return this;
-	}
+    // Options that need a little more setup
+    if (options.touchAction) {
+      this.touchAction.update();
+    }
+    if (options.inputTarget) {
+      // Clean up existing event listeners and reinitialize
+      this.input.destroy();
+      this.input.target = options.inputTarget;
+      this.input.init();
+    }
+    return this;
+  }
 
 	/**
 	 * @private
@@ -123,9 +123,9 @@ export default class Manager {
 	 * When forced, the recognizer cycle is stopped immediately.
 	 * @param {Boolean} [force]
 	 */
-	stop(force) {
-		this.session.stopped = force ? FORCED_STOP : STOP;
-	}
+  stop(force) {
+    this.session.stopped = force ? FORCED_STOP : STOP;
+  }
 
 	/**
 	 * @private
@@ -134,59 +134,59 @@ export default class Manager {
 	 * it walks through all the recognizers and tries to detect the gesture that is being made
 	 * @param {Object} inputData
 	 */
-	recognize(inputData) {
-		const { session } = this;
+  recognize(inputData) {
+    const { session } = this;
 
-		if (session.stopped) {
-			return;
-		}
+    if (session.stopped) {
+      return;
+    }
 
-		// run the touch-action polyfill
-		this.touchAction.preventDefaults(inputData);
+    // run the touch-action polyfill
+    this.touchAction.preventDefaults(inputData);
 
-		let recognizer;
-		const { recognizers } = this;
+    let recognizer;
+    const { recognizers } = this;
 
-		// this holds the recognizer that is being recognized.
-		// so the recognizer's state needs to be BEGAN, CHANGED, ENDED or RECOGNIZED
-		// if no recognizer is detecting a thing, it is set to `null`
-		let { curRecognizer } = session;
+    // this holds the recognizer that is being recognized.
+    // so the recognizer's state needs to be BEGAN, CHANGED, ENDED or RECOGNIZED
+    // if no recognizer is detecting a thing, it is set to `null`
+    let { curRecognizer } = session;
 
-		// reset when the last recognizer is recognized
-		// or when we're in a new session
-		if (!curRecognizer || (curRecognizer && curRecognizer.state & STATE_RECOGNIZED)) {
-			session.curRecognizer = null;
-			curRecognizer = null;
-		}
+    // reset when the last recognizer is recognized
+    // or when we're in a new session
+    if (!curRecognizer || (curRecognizer && curRecognizer.state & STATE_RECOGNIZED)) {
+      session.curRecognizer = null;
+      curRecognizer = null;
+    }
 
-		let i = 0;
+    let i = 0;
 
-		while (i < recognizers.length) {
-			recognizer = recognizers[i];
+    while (i < recognizers.length) {
+      recognizer = recognizers[i];
 
-			// find out if we are allowed try to recognize the input for this one.
-			// 1.   allow if the session is NOT forced stopped (see the .stop() method)
-			// 2.   allow if we still haven't recognized a gesture in this session, or the this recognizer is the one
-			//      that is being recognized.
-			// 3.   allow if the recognizer is allowed to run simultaneous with the current recognized recognizer.
-			//      this can be setup with the `recognizeWith()` method on the recognizer.
-			if (session.stopped !== FORCED_STOP && (// 1
-				!curRecognizer || recognizer === curRecognizer || // 2
-				recognizer.canRecognizeWith(curRecognizer))) { // 3
-				recognizer.recognize(inputData);
-			} else {
-				recognizer.reset();
-			}
+      // find out if we are allowed try to recognize the input for this one.
+      // 1.   allow if the session is NOT forced stopped (see the .stop() method)
+      // 2.   allow if we still haven't recognized a gesture in this session, or the this recognizer is the one
+      //      that is being recognized.
+      // 3.   allow if the recognizer is allowed to run simultaneous with the current recognized recognizer.
+      //      this can be setup with the `recognizeWith()` method on the recognizer.
+      if (session.stopped !== FORCED_STOP && (// 1
+        !curRecognizer || recognizer === curRecognizer || // 2
+        recognizer.canRecognizeWith(curRecognizer))) { // 3
+        recognizer.recognize(inputData);
+      } else {
+        recognizer.reset();
+      }
 
-			// if the recognizer has been recognizing the input as a valid gesture, we want to store this one as the
-			// current active recognizer. but only if we don't already have an active recognizer
-			if (!curRecognizer && recognizer.state & (STATE_BEGAN | STATE_CHANGED | STATE_ENDED)) {
-				session.curRecognizer = recognizer;
-				curRecognizer = recognizer;
-			}
-			i++;
-		}
-	}
+      // if the recognizer has been recognizing the input as a valid gesture, we want to store this one as the
+      // current active recognizer. but only if we don't already have an active recognizer
+      if (!curRecognizer && recognizer.state & (STATE_BEGAN | STATE_CHANGED | STATE_ENDED)) {
+        session.curRecognizer = recognizer;
+        curRecognizer = recognizer;
+      }
+      i++;
+    }
+  }
 
 	/**
 	 * @private
@@ -194,20 +194,20 @@ export default class Manager {
 	 * @param {Recognizer|String} recognizer
 	 * @returns {Recognizer|Null}
 	 */
-	get(recognizer) {
-		if (recognizer instanceof Recognizer) {
-			return recognizer;
-		}
+  get(recognizer) {
+    if (recognizer instanceof Recognizer) {
+      return recognizer;
+    }
 
-		const { recognizers } = this;
+    const { recognizers } = this;
 
-		for (let i = 0; i < recognizers.length; i++) {
-			if (recognizers[i].options.event === recognizer) {
-				return recognizers[i];
-			}
-		}
-		return null;
-	}
+    for (let i = 0; i < recognizers.length; i++) {
+      if (recognizers[i].options.event === recognizer) {
+        return recognizers[i];
+      }
+    }
+    return null;
+  }
 
 	/**
 	 * @private add a recognizer to the manager
@@ -215,24 +215,24 @@ export default class Manager {
 	 * @param {Recognizer} recognizer
 	 * @returns {Recognizer|Manager}
 	 */
-	add(recognizer) {
-		if (invokeArrayArg(recognizer, "add", this)) {
-			return this;
-		}
+  add(recognizer) {
+    if (invokeArrayArg(recognizer, "add", this)) {
+      return this;
+    }
 
-		// remove existing
-		const existing = this.get(recognizer.options.event);
+    // remove existing
+    const existing = this.get(recognizer.options.event);
 
-		if (existing) {
-			this.remove(existing);
-		}
+    if (existing) {
+      this.remove(existing);
+    }
 
-		this.recognizers.push(recognizer);
-		recognizer.manager = this;
+    this.recognizers.push(recognizer);
+    recognizer.manager = this;
 
-		this.touchAction.update();
-		return recognizer;
-	}
+    this.touchAction.update();
+    return recognizer;
+  }
 
 	/**
 	 * @private
@@ -240,26 +240,26 @@ export default class Manager {
 	 * @param {Recognizer|String} recognizer
 	 * @returns {Manager}
 	 */
-	remove(recognizer) {
-		if (invokeArrayArg(recognizer, "remove", this)) {
-			return this;
-		}
+  remove(recognizer) {
+    if (invokeArrayArg(recognizer, "remove", this)) {
+      return this;
+    }
 
-		const targetRecognizer = this.get(recognizer);
+    const targetRecognizer = this.get(recognizer);
 
-		// let's make sure this recognizer exists
-		if (recognizer) {
-			const { recognizers } = this;
-			const index = inArray(recognizers, targetRecognizer);
+    // let's make sure this recognizer exists
+    if (recognizer) {
+      const { recognizers } = this;
+      const index = inArray(recognizers, targetRecognizer);
 
-			if (index !== -1) {
-				recognizers.splice(index, 1);
-				this.touchAction.update();
-			}
-		}
+      if (index !== -1) {
+        recognizers.splice(index, 1);
+        this.touchAction.update();
+      }
+    }
 
-		return this;
-	}
+    return this;
+  }
 
 	/**
 	 * @private
@@ -268,19 +268,19 @@ export default class Manager {
 	 * @param {Function} handler
 	 * @returns {EventEmitter} this
 	 */
-	on(events, handler) {
-		if (events === undefined || handler === undefined) {
-			return this;
-		}
+  on(events, handler) {
+    if (events === undefined || handler === undefined) {
+      return this;
+    }
 
-		const { handlers } = this;
+    const { handlers } = this;
 
-		each(splitStr(events), event => {
-			handlers[event] = handlers[event] || [];
-			handlers[event].push(handler);
-		});
-		return this;
-	}
+    each(splitStr(events), event => {
+      handlers[event] = handlers[event] || [];
+      handlers[event].push(handler);
+    });
+    return this;
+  }
 
 	/**
 	 * @private unbind event, leave emit blank to remove all handlers
@@ -288,65 +288,65 @@ export default class Manager {
 	 * @param {Function} [handler]
 	 * @returns {EventEmitter} this
 	 */
-	off(events, handler) {
-		if (events === undefined) {
-			return this;
-		}
+  off(events, handler) {
+    if (events === undefined) {
+      return this;
+    }
 
-		const { handlers } = this;
+    const { handlers } = this;
 
-		each(splitStr(events), event => {
-			if (!handler) {
-				delete handlers[event];
-			} else {
-				handlers[event] && handlers[event].splice(inArray(handlers[event], handler), 1);
-			}
-		});
-		return this;
-	}
+    each(splitStr(events), event => {
+      if (!handler) {
+        delete handlers[event];
+      } else {
+        handlers[event] && handlers[event].splice(inArray(handlers[event], handler), 1);
+      }
+    });
+    return this;
+  }
 
 	/**
 	 * @private emit event to the listeners
 	 * @param {String} event
 	 * @param {Object} data
 	 */
-	emit(event, data) {
-		// we also want to trigger dom events
-		if (this.options.domEvents) {
-			triggerDomEvent(event, data);
-		}
+  emit(event, data) {
+    // we also want to trigger dom events
+    if (this.options.domEvents) {
+      triggerDomEvent(event, data);
+    }
 
-		// no handlers, so skip it all
-		const handlers = this.handlers[event] && this.handlers[event].slice();
+    // no handlers, so skip it all
+    const handlers = this.handlers[event] && this.handlers[event].slice();
 
-		if (!handlers || !handlers.length) {
-			return;
-		}
+    if (!handlers || !handlers.length) {
+      return;
+    }
 
-		data.type = event;
-		data.preventDefault = function() {
-			data.srcEvent.preventDefault();
-		};
+    data.type = event;
+    data.preventDefault = function () {
+      data.srcEvent.preventDefault();
+    };
 
-		let i = 0;
+    let i = 0;
 
-		while (i < handlers.length) {
-			handlers[i](data);
-			i++;
-		}
-	}
+    while (i < handlers.length) {
+      handlers[i](data);
+      i++;
+    }
+  }
 
 	/**
 	 * @private
 	 * destroy the manager and unbinds all events
 	 * it doesn't unbind dom events, that is the user own responsibility
 	 */
-	destroy() {
-		this.element && toggleCssProps(this, false);
+  destroy() {
+    this.element && toggleCssProps(this, false);
 
-		this.handlers = {};
-		this.session = {};
-		this.input.destroy();
-		this.element = null;
-	}
+    this.handlers = {};
+    this.session = {};
+    this.input.destroy();
+    this.element = null;
+  }
 }

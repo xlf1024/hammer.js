@@ -1,11 +1,13 @@
 import babel from "rollup-plugin-babel";
 import { uglify } from "rollup-plugin-uglify";
+var banner = require("./banner");
 
 export default [
 	{
 		input: "src/index.js",
 		plugins: [babel({ exclude: "node_modules/**" })],
 		output: {
+			banner: banner,
 			format: "es",
 			freeze: false,
 			exprots: "named",
@@ -18,6 +20,7 @@ export default [
 		input: "src/index.umd.js",
 		plugins: [babel({ exclude: "node_modules/**" })],
 		output: {
+			banner: banner,
 			format: "umd",
 			name: "Hammer",
 			exports: "default",
@@ -31,6 +34,7 @@ export default [
 		input: "src/index.umd.js",
 		plugins: [babel({ exclude: "node_modules/**" }), uglify({ sourcemap: true })],
 		output: {
+			banner: banner,
 			format: "umd",
 			name: "Hammer",
 			exports: "default",

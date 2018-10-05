@@ -16,19 +16,13 @@
   "bugs": {
     "url": "https://github.com/naver/hammer.js/issues"
   },
-  "dependencies": {
+  "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.1",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-transform-object-assign": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@daybrush/babel-plugin-no-side-effect-class-properties": "0.0.4",
-    "babel-eslint": "^9.0.0",
-    "eslint-config-naver": "^2.0.1",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-react": "^7.11.1"
-  },
-  "devDependencies": {
     "bannerize": "^1.0.2",
     "blanket": "^1.2.3",
     "changelogplease": "^1.2.0",
@@ -42,7 +36,6 @@
     "jshint-stylish": "^2.2.0",
     "lodash-compat": "^3.10.2",
     "node-qunit-phantomjs": "^1.4.0",
-    "phantomjs": "^2.1.7",
     "qunitjs": "^2.0.0",
     "replace-in-file": "^3.4.2",
     "rollup": "^0.66.0",
@@ -57,9 +50,7 @@
     "node": ">=0.8.0"
   },
   "scripts": {
-    "build:rollup": "rollup -c",
-    "build:module": "BABEL_ENV=esm babel ./src --out-dir ./dist/esm && BABEL_ENV=common babel ./src --out-dir ./dist/common",
-    "build": "npm run rollup && npm run string-replace && npm run bannerize",
+    "build": "npm run rollup && npm run string-replace",
     "testbuild": "BABEL_ENV=esm rollup -c ./testrollup.config.js",
     "bannerize": "bannerize hammer.js hammer.min.js",
     "connect": "serve -p 8000 ./",

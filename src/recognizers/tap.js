@@ -1,4 +1,3 @@
-import setTimeoutContext from '../utils/set-timeout-context';
 import Recognizer from '../recognizerjs/recognizer-constructor';
 import { TOUCH_ACTION_MANIPULATION } from '../touchactionjs/touchaction-Consts';
 import {INPUT_START,INPUT_END } from '../inputjs/input-consts';
@@ -90,10 +89,10 @@ export default class TapRecognizer extends Recognizer {
         if (!this.hasRequireFailures()) {
           return STATE_RECOGNIZED;
         } else {
-          this._timer = setTimeoutContext(() => {
+          this._timer = setTimeout(() => {
             this.state = STATE_RECOGNIZED;
             this.tryEmit();
-          }, options.interval, this);
+          }, options.interval);
           return STATE_BEGAN;
         }
       }
@@ -102,9 +101,9 @@ export default class TapRecognizer extends Recognizer {
   }
 
   failTimeout() {
-    this._timer = setTimeoutContext(() => {
+    this._timer = setTimeout(() => {
       this.state = STATE_FAILED;
-    }, this.options.interval, this);
+    }, this.options.interval);
     return STATE_FAILED;
   }
 
