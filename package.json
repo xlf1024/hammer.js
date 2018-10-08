@@ -65,5 +65,9 @@
   },
   "sideEffects": false,
   "module": "dist/hammer.esm.js",
-  "main": "dist/hammer.js"
+  "main": "dist/hammer.js",
+  "types": "src/hammer.d.ts",
+  "dependencies": {
+    "@types/hammerjs": "^2.0.36"
+  }
 }
