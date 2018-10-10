@@ -27,11 +27,12 @@ const SINGLE_TOUCH_WINDOW_EVENTS = 'touchstart touchmove touchend touchcancel';
  */
 export default class SingleTouchInput extends Input {
   constructor() {
-    this.evTarget = SINGLE_TOUCH_TARGET_EVENTS;
-    this.evWin = SINGLE_TOUCH_WINDOW_EVENTS;
-    this.started = false;
+    var proto = SingleTouchInput.prototype;
+    proto.evTarget = SINGLE_TOUCH_TARGET_EVENTS;
+    proto.evWin = SINGLE_TOUCH_WINDOW_EVENTS;
+
     super(...arguments);
-    Input.apply(this, arguments);
+    this.started = false;
   }
 
   handler(ev) {

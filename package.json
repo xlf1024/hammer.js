@@ -2,7 +2,7 @@
   "name": "@egjs/hammerjs",
   "title": "Hammer.JS",
   "description": "A javascript library for multi-touch gestures",
-  "version": "2.0.9",
+  "version": "2.0.11",
   "homepage": "http://naver.github.io/egjs",
   "license": "MIT",
   "keywords": [

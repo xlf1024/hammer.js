@@ -44,11 +44,11 @@ if (window.MSPointerEvent && !window.PointerEvent) {
  */
 export default class PointerEventInput extends Input {
   constructor() {
-    this.evEl = POINTER_ELEMENT_EVENTS;
-    this.evWin = POINTER_WINDOW_EVENTS;
-    super(...arguments);
-    
+    var proto = PointerEventInput.prototype;
 
+    proto.evEl = POINTER_ELEMENT_EVENTS;
+    proto.evWin = POINTER_WINDOW_EVENTS;
+    super(...arguments);
     this.store = (this.manager.session.pointerEvents = []);
   }
 
