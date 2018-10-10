@@ -1,4 +1,3 @@
-import setTimeoutContext from '../utils/set-timeout-context';
 import Recognizer from '../recognizerjs/recognizer-constructor';
 import { TOUCH_ACTION_MANIPULATION } from '../touchactionjs/touchaction-Consts';
 import {INPUT_START,INPUT_END } from '../inputjs/input-consts';
@@ -21,8 +20,17 @@ import getDistance from '../inputjs/get-distance';
  * @extends Recognizer
  */
 export default class TapRecognizer extends Recognizer {
-  constructor() {
-    super(...arguments);
+  constructor(options = {}) {
+    super({
+      event: 'tap',
+      pointers: 1,
+      taps: 1,
+      interval: 300, // max time between the multi-tap taps
+      time: 250, // max time of the pointer to be down (like finger on the screen)
+      threshold: 9, // a minimal movement is ok, but keep it low
+      posThreshold: 10, // a multi-tap can be a bit off the initial position
+      ...options,
+    });
 
     // previous time and center,
     // used for tap counting
@@ -81,10 +89,10 @@ export default class TapRecognizer extends Recognizer {
         if (!this.hasRequireFailures()) {
           return STATE_RECOGNIZED;
         } else {
-          this._timer = setTimeoutContext(() => {
+          this._timer = setTimeout(() => {
             this.state = STATE_RECOGNIZED;
             this.tryEmit();
-          }, options.interval, this);
+          }, options.interval);
           return STATE_BEGAN;
         }
       }
@@ -93,9 +101,9 @@ export default class TapRecognizer extends Recognizer {
   }
 
   failTimeout() {
-    this._timer = setTimeoutContext(() => {
+    this._timer = setTimeout(() => {
       this.state = STATE_FAILED;
-    }, this.options.interval, this);
+    }, this.options.interval);
     return STATE_FAILED;
   }
 
@@ -110,13 +118,3 @@ export default class TapRecognizer extends Recognizer {
     }
   }
 }
-
-TapRecognizer.prototype.defaults = {
-  event: 'tap',
-  pointers: 1,
-  taps: 1,
-  interval: 300, // max time between the multi-tap taps
-  time: 250, // max time of the pointer to be down (like finger on the screen)
-  threshold: 9, // a minimal movement is ok, but keep it low
-  posThreshold: 10 // a multi-tap can be a bit off the initial position
-};

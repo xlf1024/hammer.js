@@ -23,12 +23,11 @@ const MOUSE_WINDOW_EVENTS = 'mousemove mouseup';
  */
 export default class MouseInput extends Input {
   constructor() {
-    super(...arguments);
-
     this.evEl = MOUSE_ELEMENT_EVENTS;
     this.evWin = MOUSE_WINDOW_EVENTS;
 
     this.pressed = false; // mousedown state
+    super(...arguments);
   }
 
   /**

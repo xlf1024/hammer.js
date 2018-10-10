@@ -1,47 +1,31 @@
 import babel from "rollup-plugin-babel";
 import { uglify } from "rollup-plugin-uglify";
-var banner = require("./banner");
 
 export default [
 	{
-		input: "src/index.js",
+		input: "./tests/index.js",
 		plugins: [babel({ exclude: "node_modules/**" })],
 		output: {
-			banner: banner,
-			format: "es",
-			freeze: false,
-			exprots: "named",
-			interop: false,
-			sourcemap: true,
-			file: "./dist/hammer.esm.js",
-		},
-	},
-	{
-		input: "src/index.umd.js",
-		plugins: [babel({ exclude: "node_modules/**" })],
-		output: {
-			banner: banner,
 			format: "umd",
 			name: "Hammer",
 			exports: "default",
 			freeze: false,
 			interop: false,
 			sourcemap: true,
-			file: "./dist/hammer.js",
+			file: "./testdist/hammer.js",
 		},
 	},
 	{
-		input: "src/index.umd.js",
+		input: "./tests/index.js",
 		plugins: [babel({ exclude: "node_modules/**" }), uglify({ sourcemap: true })],
 		output: {
-			banner: banner,
 			format: "umd",
 			name: "Hammer",
 			exports: "default",
 			freeze: false,
 			interop: false,
 			sourcemap: true,
-			file: "./dist/hammer.min.js",
+			file: "./testdist/hammer.min.js",
 		},
 	},
 ];

@@ -1,12 +1,14 @@
 import {
     TOUCH_ACTION_COMPUTE,
     TOUCH_ACTION_MAP,
-    NATIVE_TOUCH_ACTION,
-    PREFIXED_TOUCH_ACTION,
     TOUCH_ACTION_NONE,
     TOUCH_ACTION_PAN_X,
     TOUCH_ACTION_PAN_Y
 } from './touchaction-Consts';
+import {
+  NATIVE_TOUCH_ACTION,
+  PREFIXED_TOUCH_ACTION,
+} from "./get-touchaction-props";
 import {
     DIRECTION_VERTICAL,
     DIRECTION_HORIZONTAL

@@ -10,8 +10,13 @@ import { STATE_BEGAN } from '../recognizerjs/recognizer-consts';
  * @extends AttrRecognizer
  */
 export default class RotateRecognizer extends AttrRecognizer {
-  constructor() {
-    super(...arguments);
+  constructor(options = {}) {
+    super( {
+      event: 'rotate',
+      threshold: 0,
+      pointers: 2,
+      ...options,
+    });
   }
 
   getTouchAction() {
@@ -23,9 +28,3 @@ export default class RotateRecognizer extends AttrRecognizer {
         (Math.abs(input.rotation) > this.options.threshold || this.state & STATE_BEGAN);
   }
 }
-
-RotateRecognizer.prototype.defaults = {
-  event: 'rotate',
-  threshold: 0,
-  pointers: 2
-};

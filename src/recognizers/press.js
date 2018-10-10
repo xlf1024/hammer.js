@@ -4,7 +4,6 @@ import {
     STATE_FAILED
 } from '../recognizerjs/recognizer-consts';
 import { now } from '../utils/utils-consts';
-import setTimeoutContext from '../utils/set-timeout-context';
 import { TOUCH_ACTION_AUTO } from '../touchactionjs/touchaction-Consts';
 import {
     INPUT_START,
@@ -20,8 +19,14 @@ import {
  * @extends Recognizer
  */
 export default class PressRecognizer extends Recognizer {
-  constructor() {
-    super(...arguments);
+  constructor(options = {}) {
+    super({
+      event: 'press',
+      pointers: 1,
+      time: 251, // minimal time of the pointer to be pressed
+      threshold: 9, // a minimal movement is ok, but keep it low
+      ...options,
+    });
     this._timer = null;
     this._input = null;
   }
@@ -44,10 +49,10 @@ export default class PressRecognizer extends Recognizer {
       this.reset();
     } else if (input.eventType & INPUT_START) {
       this.reset();
-      this._timer = setTimeoutContext(() => {
+      this._timer = setTimeout(() => {
         this.state = STATE_RECOGNIZED;
         this.tryEmit();
-      }, options.time, this);
+      }, options.time);
     } else if (input.eventType & INPUT_END) {
       return STATE_RECOGNIZED;
     }
@@ -72,9 +77,3 @@ export default class PressRecognizer extends Recognizer {
   }
 }
 
-PressRecognizer.prototype.defaults = {
-  event: 'press',
-  pointers: 1,
-  time: 251, // minimal time of the pointer to be pressed
-  threshold: 9 // a minimal movement is ok, but keep it low
-};
