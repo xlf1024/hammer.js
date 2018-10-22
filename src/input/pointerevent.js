@@ -8,6 +8,7 @@ import {
     INPUT_TYPE_PEN,
     INPUT_TYPE_KINECT
 } from '../inputjs/input-consts';
+import {window} from "../browser";
 import Input from '../inputjs/input-constructor';
 import inArray from '../utils/in-array';
 

@@ -1,5 +1,6 @@
 import prefixed from '../utils/prefixed';
 import { TEST_ELEMENT } from '../utils/utils-consts';
+import {window} from '../browser';
 
 export const PREFIXED_TOUCH_ACTION = prefixed(TEST_ELEMENT.style, 'touchAction');
 export const NATIVE_TOUCH_ACTION = PREFIXED_TOUCH_ACTION !== undefined;
