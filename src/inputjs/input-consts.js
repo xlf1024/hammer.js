@@ -1,4 +1,5 @@
 import prefixed from '../utils/prefixed';
+import {window} from "../browser";
 
 const MOBILE_REGEX = /mobile|tablet|ip(ad|hone|od)|android/i;
 
