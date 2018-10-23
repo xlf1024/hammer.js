@@ -1,6 +1,6 @@
 
 const VENDOR_PREFIXES = ['', 'webkit', 'Moz', 'MS', 'ms', 'o'];
-const TEST_ELEMENT = typeof document === "undefined" ? {style: {}} : document.createElement('div') 
+const TEST_ELEMENT = typeof document === "undefined" ? {style: {}} : document.createElement('div');
 
 const TYPE_FUNCTION = 'function';
 
