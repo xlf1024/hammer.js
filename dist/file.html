@@ -1,0 +1,139 @@
+
+<style>
+html, body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.item {
+  position: absolute;
+  background: rgba(200, 50, 50, 0.4);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  height: 100%;
+}
+header h2 {
+  position: absolute;
+  left: -100px;
+  right: -100px;
+  top: -100px;
+  bottom: -100px;
+  margin: auto;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+header.subdir {
+  position: relative;
+  width: 100%;
+  height: 20%;
+  max-height: 100px;
+}
+.wrapper {
+  position: relative;
+  width: calc(100% - 10px);
+  margin: 5px;
+  flex: auto;
+}
+</style>
+<body>
+  <div class="tooltip">
+    <p><span>name</span>: <span class="tooltip_name"></span></p>
+    <p><span>size</span>: <span class="tooltip_space"></span></p>
+    <p><span>size</span>: <span class="tooltip_space"></span></p>
+    <p><span>percent</span>: <span class="tooltip_percent"></span></p>    
+    <p><span>path</span>: <span class="tooltip_path"></span></p>
+  </div>
+</body>
+<script src="../rollup-plugin-visualizer/node_modules/@egjs/infinitegrid/dist/infinitegrid.pkgd.min.js"></script>
+<script>
+const items = [{"name":"hammer.min.js","path":"/","bundleSize":72547,"originalSize":102186,"percent":99.98,"dirs":[{"name":"src","path":"/src","percent":98.59,"bundleSize":71539,"originalSize":78666,"dirs":[{"name":"recognizers","path":"/src/recognizers","percent":18.709999999999997,"bundleSize":13582,"originalSize":13332,"dirs":[{"name":"tap.js","path":"/src/recognizers/tap.js","bundleSize":3615,"originalSize":3628,"percent":4.98,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>tap.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"pan.js","path":"/src/recognizers/pan.js","bundleSize":2387,"originalSize":2431,"percent":3.29,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>pan.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"press.js","path":"/src/recognizers/press.js","bundleSize":2070,"originalSize":2130,"percent":2.85,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>press.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"swipe.js","path":"/src/recognizers/swipe.js","bundleSize":1743,"originalSize":1737,"percent":2.4,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>swipe.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"attribute.js","path":"/src/recognizers/attribute.js","bundleSize":1728,"originalSize":1723,"percent":2.38,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>attribute.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"pinch.js","path":"/src/recognizers/pinch.js","bundleSize":1154,"originalSize":950,"percent":1.59,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>pinch.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"rotate.js","path":"/src/recognizers/rotate.js","bundleSize":885,"originalSize":733,"percent":1.22,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>rotate.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}}],"content":"<div class=\"item\">\n    <header class=\"subdir\"><h2><span>recognizers</span></h2></header>\n    <div class=\"wrapper\"></div>\n  </div>","orgSize":{"width":28.709999999999997,"height":28.709999999999997},"size":{"width":28.709999999999997,"height":28.709999999999997}},{"name":"input","path":"/src/input","percent":15.940000000000001,"bundleSize":11553,"originalSize":11473,"dirs":[{"name":"touchmouse.js","path":"/src/input/touchmouse.js","bundleSize":3306,"originalSize":2778,"percent":4.56,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>touchmouse.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"pointerevent.js","path":"/src/input/pointerevent.js","bundleSize":2594,"originalSize":2661,"percent":3.58,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>pointerevent.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"touch.js","path":"/src/input/touch.js","bundleSize":2539,"originalSize":2805,"percent":3.5,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>touch.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"singletouch.js","path":"/src/input/singletouch.js","bundleSize":1753,"originalSize":1898,"percent":2.42,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>singletouch.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"mouse.js","path":"/src/input/mouse.js","bundleSize":1361,"originalSize":1331,"percent":1.88,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>mouse.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}}],"content":"<div class=\"item\">\n    <header class=\"subdir\"><h2><span>input</span></h2></header>\n    <div class=\"wrapper\"></div>\n  </div>","orgSize":{"width":25.94,"height":25.94},"size":{"width":25.94,"height":25.94}},{"name":"inputjs","path":"/src/inputjs","percent":15.7,"bundleSize":11397,"originalSize":14110,"dirs":[{"name":"compute-input-data.js","path":"/src/inputjs/compute-input-data.js","bundleSize":2076,"originalSize":2664,"percent":2.86,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>compute-input-data.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"input-constructor.js","path":"/src/inputjs/input-constructor.js","bundleSize":1627,"originalSize":1725,"percent":2.24,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>input-constructor.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"compute-interval-input-data.js","path":"/src/inputjs/compute-interval-input-data.js","bundleSize":1082,"originalSize":1297,"percent":1.49,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>compute-interval-input-data.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"input-handler.js","path":"/src/inputjs/input-handler.js","bundleSize":894,"originalSize":1047,"percent":1.23,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>input-handler.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"input-consts.js","path":"/src/inputjs/input-consts.js","bundleSize":872,"originalSize":1450,"percent":1.2,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>input-consts.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"compute-delta-xy.js","path":"/src/inputjs/compute-delta-xy.js","bundleSize":748,"originalSize":821,"percent":1.03,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>compute-delta-xy.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"simple-clone-input-data.js","path":"/src/inputjs/simple-clone-input-data.js","bundleSize":701,"originalSize":795,"percent":0.97,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>simple-clone-input-data.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-center.js","path":"/src/inputjs/get-center.js","bundleSize":613,"originalSize":677,"percent":0.84,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-center.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"create-input-instance.js","path":"/src/inputjs/create-input-instance.js","bundleSize":598,"originalSize":934,"percent":0.82,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>create-input-instance.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-scale.js","path":"/src/inputjs/get-scale.js","bundleSize":410,"originalSize":517,"percent":0.57,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-scale.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-distance.js","path":"/src/inputjs/get-distance.js","bundleSize":407,"originalSize":470,"percent":0.56,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-distance.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-angle.js","path":"/src/inputjs/get-angle.js","bundleSize":388,"originalSize":446,"percent":0.53,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-angle.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-direction.js","path":"/src/inputjs/get-direction.js","bundleSize":345,"originalSize":513,"percent":0.48,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-direction.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-rotation.js","path":"/src/inputjs/get-rotation.js","bundleSize":326,"originalSize":428,"percent":0.45,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-rotation.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-velocity.js","path":"/src/inputjs/get-velocity.js","bundleSize":310,"originalSize":326,"percent":0.43,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-velocity.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}}],"content":"<div class=\"item\">\n    <header class=\"subdir\"><h2><span>inputjs</span></h2></header>\n    <div class=\"wrapper\"></div>\n  </div>","orgSize":{"width":25.7,"height":25.7},"size":{"width":25.7,"height":25.7}},{"name":"recognizerjs","path":"/src/recognizerjs","percent":12.8,"bundleSize":9288,"originalSize":9646,"dirs":[{"name":"recognizer-constructor.js","path":"/src/recognizerjs/recognizer-constructor.js","bundleSize":7948,"originalSize":7872,"percent":10.96,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>recognizer-constructor.js</span></h2></header>\n    \n  </div>","orgSize":{"width":20.96,"height":20.96},"size":{"width":20.96,"height":20.96}},{"name":"direction-str.js","path":"/src/recognizerjs/direction-str.js","bundleSize":402,"originalSize":538,"percent":0.55,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>direction-str.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"state-str.js","path":"/src/recognizerjs/state-str.js","bundleSize":388,"originalSize":515,"percent":0.53,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>state-str.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-recognizer-by-name-if-manager.js","path":"/src/recognizerjs/get-recognizer-by-name-if-manager.js","bundleSize":377,"originalSize":387,"percent":0.52,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-recognizer-by-name-if-manager.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"recognizer-consts.js","path":"/src/recognizerjs/recognizer-consts.js","bundleSize":173,"originalSize":334,"percent":0.24,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>recognizer-consts.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}}],"content":"<div class=\"item\">\n    <header class=\"subdir\"><h2><span>recognizerjs</span></h2></header>\n    <div class=\"wrapper\"></div>\n  </div>","orgSize":{"width":22.8,"height":22.8},"size":{"width":22.8,"height":22.8}},{"name":"manager.js","path":"/src/manager.js","bundleSize":8681,"originalSize":8423,"percent":11.97,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>manager.js</span></h2></header>\n    \n  </div>","orgSize":{"width":21.97,"height":21.97},"size":{"width":21.97,"height":21.97}},{"name":"utils","path":"/src/utils","percent":11.859999999999998,"bundleSize":8607,"originalSize":9451,"dirs":[{"name":"assign.js","path":"/src/utils/assign.js","bundleSize":869,"originalSize":870,"percent":1.2,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>assign.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"deprecate.js","path":"/src/utils/deprecate.js","bundleSize":806,"originalSize":828,"percent":1.11,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>deprecate.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"unique-array.js","path":"/src/utils/unique-array.js","bundleSize":707,"originalSize":749,"percent":0.97,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>unique-array.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"in-array.js","path":"/src/utils/in-array.js","bundleSize":589,"originalSize":597,"percent":0.81,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>in-array.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"each.js","path":"/src/utils/each.js","bundleSize":524,"originalSize":539,"percent":0.72,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>each.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"extend.js","path":"/src/utils/extend.js","bundleSize":505,"originalSize":561,"percent":0.7,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>extend.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"prefixed.js","path":"/src/utils/prefixed.js","bundleSize":489,"originalSize":554,"percent":0.67,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>prefixed.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"invoke-array-arg.js","path":"/src/utils/invoke-array-arg.js","bundleSize":466,"originalSize":507,"percent":0.64,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>invoke-array-arg.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"inherit.js","path":"/src/utils/inherit.js","bundleSize":388,"originalSize":433,"percent":0.53,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>inherit.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"bool-or-fn.js","path":"/src/utils/bool-or-fn.js","bundleSize":383,"originalSize":445,"percent":0.53,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>bool-or-fn.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"has-parent.js","path":"/src/utils/has-parent.js","bundleSize":324,"originalSize":338,"percent":0.45,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>has-parent.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"merge.js","path":"/src/utils/merge.js","bundleSize":319,"originalSize":406,"percent":0.44,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>merge.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"remove-event-listeners.js","path":"/src/utils/remove-event-listeners.js","bundleSize":317,"originalSize":389,"percent":0.44,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>remove-event-listeners.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"add-event-listeners.js","path":"/src/utils/add-event-listeners.js","bundleSize":308,"originalSize":380,"percent":0.42,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>add-event-listeners.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-window-for-element.js","path":"/src/utils/get-window-for-element.js","bundleSize":268,"originalSize":286,"percent":0.37,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-window-for-element.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"set-timeout-context.js","path":"/src/utils/set-timeout-context.js","bundleSize":259,"originalSize":307,"percent":0.36,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>set-timeout-context.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"bind-fn.js","path":"/src/utils/bind-fn.js","bundleSize":226,"originalSize":242,"percent":0.31,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>bind-fn.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"utils-consts.js","path":"/src/utils/utils-consts.js","bundleSize":207,"originalSize":302,"percent":0.29,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>utils-consts.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"in-str.js","path":"/src/utils/in-str.js","bundleSize":182,"originalSize":198,"percent":0.25,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>in-str.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"to-array.js","path":"/src/utils/to-array.js","bundleSize":178,"originalSize":194,"percent":0.25,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>to-array.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"split-str.js","path":"/src/utils/split-str.js","bundleSize":160,"originalSize":177,"percent":0.22,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>split-str.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"unique-id.js","path":"/src/utils/unique-id.js","bundleSize":133,"originalSize":149,"percent":0.18,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>unique-id.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}}],"content":"<div class=\"item\">\n    <header class=\"subdir\"><h2><span>utils</span></h2></header>\n    <div class=\"wrapper\"></div>\n  </div>","orgSize":{"width":21.86,"height":21.86},"size":{"width":21.86,"height":21.86}},{"name":"touchactionjs","path":"/src/touchactionjs","percent":7,"bundleSize":5080,"originalSize":6006,"dirs":[{"name":"touchaction-constructor.js","path":"/src/touchactionjs/touchaction-constructor.js","bundleSize":3159,"originalSize":3448,"percent":4.35,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>touchaction-constructor.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"clean-touch-actions.js","path":"/src/touchactionjs/clean-touch-actions.js","bundleSize":985,"originalSize":1206,"percent":1.36,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>clean-touch-actions.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"get-touchaction-props.js","path":"/src/touchactionjs/get-touchaction-props.js","bundleSize":653,"originalSize":779,"percent":0.9,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>get-touchaction-props.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"touchaction-Consts.js","path":"/src/touchactionjs/touchaction-Consts.js","bundleSize":283,"originalSize":573,"percent":0.39,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>touchaction-Consts.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}}],"content":"<div class=\"item\">\n    <header class=\"subdir\"><h2><span>touchactionjs</span></h2></header>\n    <div class=\"wrapper\"></div>\n  </div>","orgSize":{"width":17,"height":17},"size":{"width":17,"height":17}},{"name":"defaults.js","path":"/src/defaults.js","bundleSize":2745,"originalSize":2681,"percent":3.78,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>defaults.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"Hammer.js","path":"/src/Hammer.js","bundleSize":547,"originalSize":476,"percent":0.75,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>Hammer.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"index.umd.js","path":"/src/index.umd.js","bundleSize":59,"originalSize":129,"percent":0.08,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>index.umd.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}},{"name":"index.js","path":"/src/index.js","bundleSize":0,"originalSize":2939,"percent":0,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>index.js</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}}],"content":"<div class=\"item\">\n    <header class=\"subdir\"><h2><span>src</span></h2></header>\n    <div class=\"wrapper\"></div>\n  </div>","orgSize":{"width":108.59,"height":108.59},"size":{"width":108.59,"height":108.59}},{"name":"\u0000rollupPluginBabelHelpers","path":"\u0000rollupPluginBabelHelpers","bundleSize":1008,"originalSize":23520,"percent":1.39,"dirs":[],"content":"<div class=\"item\">\n    <header class=\"file\"><h2><span>\u0000rollupPluginBabelHelpers</span></h2></header>\n    \n  </div>","orgSize":{"width":15,"height":15},"size":{"width":15,"height":15}}],"content":"<div class=\"item\">\n    <header class=\"subdir\"><h2><span>hammer.min.js</span></h2></header>\n    <div class=\"wrapper\"></div>\n  </div>","orgSize":{"width":109.98,"height":109.98},"size":{"width":109.98,"height":109.98}}];
+const PackingLayout = eg.InfiniteGrid.PackingLayout;
+const DOMRenderer = eg.InfiniteGrid.DOMRenderer;
+const layout = new PackingLayout({
+  aspectRatio: 1.5,
+  margin: 5,
+});
+function runa(wrapper, items) {
+  DOMRenderer.createElements(items);
+  items.forEach(item => {
+    wrapper.appendChild(item.el);
+  })
+  items.forEach(item => {
+    wrapper.appendChild(item.el);
+    if (item.dirs.length) {
+      item.wrapper = item.el.querySelector(".wrapper");
+      runa(item.wrapper, item.dirs);
+    }
+  });
+}
+function runb(wrapper, items) {
+  if (!wrapper) {
+    return;
+  }
+  const width = wrapper.offsetWidth;
+  const height = wrapper.offsetHeight;
+
+  layout.options.aspectRatio = width / height;
+  layout.setSize(width);
+  layout.layout([{items: items}]);
+  DOMRenderer.renderItems(items);
+
+  items.forEach(item => {
+    const header = item.el.querySelector("header");
+    const h2 = header.querySelector("h2");
+    const span = header.querySelector("span");
+    const headerWidth = header.offsetWidth;
+    const headerHeight = header.offsetHeight;
+    const spanWidth = span.offsetWidth;
+    const spanHeight = span.offsetHeight;
+
+    const scale = Math.min((headerWidth - 10) / spanWidth, (headerHeight - 10) / spanHeight, 2);
+
+    h2.style.lineHeight = (200 + headerHeight) + "px";
+    h2.style.transform = "scale(" + scale + ")";
+    runb(item.wrapper, item.dirs);
+  });
+}
+runa(document.body, items);
+
+
+function resize() {
+  runb(document.body, items);
+}
+
+function getItemParent(target) {
+  if (target === document.body) {
+    return;
+  }
+  if (target.classList && target.classList.has("item")) {
+    return target;
+  }
+
+  return getItemParent(target.parentNode);
+}
+document.body.addEventListener("mousemove", e => {
+  const item = getItemParent(e.target);
+
+  if (!item) {
+    return;
+  }
+});
+window.addEventListener("resize", resize);
+
+resize();
+</script>
