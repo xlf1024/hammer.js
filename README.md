@@ -5,14 +5,14 @@
 ## Installation
 ### NPM
 ```sh
-npm install --save hammerjs
+npm install --save @egjs/hammerjs
 ```
 
 **or**
 
 ### Yarn
 ```sh
-yarn add hammerjs
+yarn add @egjs/hammerjs
 ```
 
 **or**
@@ -20,6 +20,7 @@ yarn add hammerjs
 ### CDN
 [https://cdnjs.com/libraries/hammer.js/](https://cdnjs.com/libraries/hammer.js/)
 
+> We did not provide CDN yet. leave the link to original hammerjs as is.
 
 ## Usage
 hammer.js has a quick start option for gestures it already recognizes.
@@ -83,6 +84,7 @@ Feel encouraged to report issues or submit pull requests. When you're ready to d
 ## License
 [MIT][license]
 
+[hammerjs-url]: http://hammerjs.github.io
 [hammerjs-url]: http://hammerjs.github.io
 
 [npm-image]: https://img.shields.io/npm/v/hammerjs.svg
