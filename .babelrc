@@ -9,8 +9,8 @@
     ]
   ],
   "plugins": [
-    "@daybrush/babel-plugin-no-side-effect-class-properties",
-    "@babel/plugin-proposal-class-properties",
+    "babel-plugin-no-side-effect-class-properties",
+    ["@babel/plugin-proposal-class-properties", {"loose": true}],
     "@babel/plugin-transform-object-assign"
   ]
 }
