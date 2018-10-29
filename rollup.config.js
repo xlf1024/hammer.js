@@ -35,7 +35,7 @@ export default [
 		},
 	},
 	{
-		input: "src/index.umd.js",
+		input: "src/Hammer.js",
 		plugins: [babel({ exclude: "node_modules/**" }), replaceVersion, uglify({
 			sourcemap: true,
 			output: {

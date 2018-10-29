@@ -69,7 +69,6 @@ export default class Hammer {
    * @const {string}
    */
 	static VERSION = "#__VERSION__#";
-	static DIRECTION_HORIZONTAL = DIRECTION_HORIZONTAL;
 	static DIRECTION_ALL = DIRECTION_ALL;
 	static DIRECTION_DOWN = DIRECTION_DOWN;
 	static DIRECTION_LEFT = DIRECTION_LEFT;
