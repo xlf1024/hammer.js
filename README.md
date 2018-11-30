@@ -1,6 +1,13 @@
 # [hammer.js][hammerjs-url]  [![NPM Version][npm-image]][npm-url]  [![NPM Downloads][downloads-image]][downloads-url]  [![Build Status][travis-image]][travis-url]
 > A JavaScript library for detecting touch gestures.
 
+## Solved Issue
+* [Support for hammer.js in node.js](https://github.com/naver/hammer.js/issues/3)
+  - [Make hammerjs server friendly](https://github.com/hammerjs/hammer.js/issues/1060)
+  - [Hammer.js fails in node since window is undefined](https://github.com/hammerjs/hammer.js/issues/930)
+* [Support ES Module for Tree Shaking](https://github.com/naver/hammer.js/issues/12)
+* [Change the priority of define and exports for umd](https://github.com/naver/hammer.js/issues/11)
+
 
 ## Installation
 ### NPM
@@ -87,14 +94,14 @@ Feel encouraged to report issues or submit pull requests. When you're ready to d
 [hammerjs-url]: http://hammerjs.github.io
 [hammerjs-url]: http://hammerjs.github.io
 
-[npm-image]: https://img.shields.io/npm/v/hammerjs.svg
-[npm-url]: https://npmjs.org/package/hammerjs
+[npm-image]: https://img.shields.io/npm/v/@egjs/hammerjs.svg
+[npm-url]: https://npmjs.org/package/@egjs/hammerjs
 
 [travis-image]: https://img.shields.io/travis/stream-utils/raw-body/master.svg
 [travis-url]: https://travis-ci.org/hammerjs/hammer.js
 
-[downloads-image]: https://img.shields.io/npm/dm/hammerjs.svg
-[downloads-url]: https://npmjs.org/package/hammerjs
+[downloads-image]: https://img.shields.io/npm/dm/@egjs/hammerjs.svg
+[downloads-url]: https://npmjs.org/package/@egjs/hammerjs
 
 
 <!-- Examples -->
