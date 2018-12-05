@@ -3,7 +3,7 @@
 
 ## What is this repository?
 
-It seems like that `hammer.js` repo is no more acitvated. 
+It seems like that `hammer.js` repository is no more activated. 
   - [Is this library still actively maintained?](https://github.com/hammerjs/hammer.js/issues/1197)
 
 But our library ([egjs](https://naver.github.io/egjs/)) has deep dependency to hammer.js for touch interaction.
@@ -17,7 +17,7 @@ So we solved following issues that are not resolved in original hammer.js
 * [Support ES Module for Tree Shaking](https://github.com/naver/hammer.js/issues/12)
 * [Change the priority of define and exports for umd](https://github.com/naver/hammer.js/issues/11)
 
-We would maintain this repository to fix bugs remained and enhance it until original repository acivate.
+We would maintain this repository to fix remain bugs and enhance it until original repository activates.
 
 
 ## Installation
