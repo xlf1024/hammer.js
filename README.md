@@ -1,12 +1,23 @@
 # [hammer.js][hammerjs-url]  [![NPM Version][npm-image]][npm-url]  [![NPM Downloads][downloads-image]][downloads-url]  [![Build Status][travis-image]][travis-url]
 > A JavaScript library for detecting touch gestures.
 
-## Solved Issue
+## What is this repository?
+
+It seems like that `hammer.js` repository is no more activated. 
+  - [Is this library still actively maintained?](https://github.com/hammerjs/hammer.js/issues/1197)
+
+But our library ([egjs](https://naver.github.io/egjs/)) has deep dependency to hammer.js for touch interaction.
+And some pending issues were critical for us to make more light size, compatible with node.js , resolve module crash on umd envrioment.
+
+So we solved following issues that are not resolved in original hammer.js
+
 * [Support for hammer.js in node.js](https://github.com/naver/hammer.js/issues/3)
   - [Make hammerjs server friendly](https://github.com/hammerjs/hammer.js/issues/1060)
   - [Hammer.js fails in node since window is undefined](https://github.com/hammerjs/hammer.js/issues/930)
 * [Support ES Module for Tree Shaking](https://github.com/naver/hammer.js/issues/12)
 * [Change the priority of define and exports for umd](https://github.com/naver/hammer.js/issues/11)
+
+We would maintain this repository to fix remain bugs and enhance it until original repository activates.
 
 
 ## Installation
