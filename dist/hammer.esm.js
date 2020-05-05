@@ -584,7 +584,13 @@ function getScale(start, end) {
  */
 
 function getRotation(start, end) {
-  return getAngle(end[1], end[0], PROPS_CLIENT_XY) + getAngle(start[1], start[0], PROPS_CLIENT_XY);
+  var startSorted = start[0].identifier < start[1].identifier;
+  var start0 = startSorted ? start[0] : start[1];
+  var start1 = startSorted ? start[1] : start[0];
+  var endSorted = end[0].identifier < end[1].identifier;
+  var end0 = endSorted ? end[0] : end[1];
+  var end1 = endSorted ? end[1] : end[0];
+  return getAngle(end0, end1, PROPS_CLIENT_XY) - getAngle(start0, start1, PROPS_CLIENT_XY);
 }
 
 /**
