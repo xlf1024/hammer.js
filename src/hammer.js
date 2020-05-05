@@ -125,7 +125,6 @@ export default class Hammer {
 	static removeEventListeners = removeEventListeners;
 	static defaults = assign({}, defaults, { preset });
 	constructor(element, options = {}) {
-		document.body.style.backgroundColor = "red";
 		return new Manager(element, {
 			recognizers: [
         // RecognizerClass, options, [recognizeWith, ...], [requireFailure, ...]

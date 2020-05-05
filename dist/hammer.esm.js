@@ -2917,7 +2917,6 @@ function () {
       options = {};
     }
 
-    document.body.style.backgroundColor = "red";
     return new Manager(element, _extends({
       recognizers: preset.concat()
     }, options));
